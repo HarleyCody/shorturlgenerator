@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block styles %}
+    <style>
+    body{
+        background-color:#1e3651;
+        background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/China_Pop_Density.svg/2000px-China_Pop_Density.svg.png');
+        background-size: cover;
+        height: 100%;
+    }
+    .btn-link{
+        color:#b8bcfe;
+        text-shadow: none;
+    }
+    .btn-link:hover{
+        color:#000000;
+    }
+    </style>
+{% endblock styles%}
+{% block content %}
+<div class='container'>
+    <div class ='row'>
+        <div class='text-center col-sm-12'>
+            <h1>{{ title }}</h1>
+            <p class ="lead">Shorten the URL</p>
+            <div class='text-center'>
+                <form method='POST' action = '.'> {% csrf_token %}
+                    <!--<input name = 'source_url' type = 'text' placeholder= "place source url here"/>-->
+                    {{ form.as_p }}
+                    <input class='btn btn-primary' type = 'submit' value = 'Shorten &raquo;'>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
